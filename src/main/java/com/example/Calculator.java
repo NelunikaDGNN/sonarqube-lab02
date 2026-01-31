@@ -2,48 +2,20 @@ package com.example;
 
 public class Calculator {
 
-  // Code Smell: Long method + high complexity
-  // EVEN WORSE: longer, more complex, duplicated logic
-  public int calculate(int a, int b, String op) {
-    if (op.equals("add")) {
-      return a + b;
-    } else if (op.equals("add-again")) {
-      return a + b; // DUPLICATION
-    } else if (op.equals("sub")) {
-      return a - b;
-    } else if (op.equals("sub-again")) {
-      return a - b; // DUPLICATION
-    } else if (op.equals("mul")) {
-      return a * b;
-    } else if (op.equals("div")) {
-      if (b == 0) {
-        return 0;
-      } else {
-        return a / b;
-      }
-    } else if (op.equals("mod")) {
-      return a % b;
-    } else if (op.equals("pow")) {
-      int result = 1;
-      for (int i = 0; i < b; i++) {
-        result = result * a;
-      }
-      return result;
-    } else {
-      return 0;
+    public int calculate(int a, int b, String op) {
+        return switch (op) {
+            case "add", "add-again" -> a + b;
+            case "sub", "sub-again" -> a - b;
+            case "mul" -> a * b;
+            case "div" -> b != 0 ? a / b : 0;
+            case "mod" -> a % b;
+            case "pow" -> (int) Math.pow(a, b);
+            default -> 0;
+        };
     }
-  }
 
-  // Code Duplication (students must remove)
-  public int addNumbers(int x, int y) {
-    return x + y;
-  }
-
-  public int sumValues(int a, int b) {
-    return a + b;
-  }
-
-  public int addAgain(int a, int b) {
-    return a + b;
-  }
+    //  remove duplicate methods
+    public int add(int a, int b) {
+        return a + b;
+    }
 }

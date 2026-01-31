@@ -24,4 +24,28 @@
         </plugins>
     </build>
 
+    <dependencies>
+    <!-- Add this SLF4J dependency -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>2.0.13</version> <!-- or latest version -->
+    </dependency>
+    
+    <!-- Optional: Add a logging implementation (choose one) -->
+    <!-- Option 1: Logback (recommended) -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.5.6</version>
+    </dependency>
+    
+    <!-- OR Option 2: Simple Logger -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.13</version>
+    </dependency>
+</dependencies>
+
 </project>
